@@ -171,3 +171,14 @@ if (!$_SESSION[$blackjack]){
 }
 ```
 placed in the session blackjack variable
+* #### buttons
+as of now i need more context and will ask the coaches for some help to create these buttons
+
+### 11/  the dealer 
+* #### the extention
+```php
+class Dealer extends Player {
+    
+}
+```
+created a new Dealer.php file and wrote this code.
