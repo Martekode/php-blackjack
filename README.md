@@ -63,8 +63,17 @@ class Blackjack {
     public function getDeck() {
         return $this->deck;
     }
-    ```
+```
 #### 7/ In the constructor do the following:
+```php
+    public function __construct(){
+        $this->player = new Player;
+        $this->dealer = new Player;
+        $this->deck = new Deck;
+        //possible that it's $shuffledDeck = $this->deck->shuffle;
+        $this->deck->shuffle();
+    }
+```
 #### 8/ In the constructor of the Player class;
 #### 9/ Go back to the Player class and add the following logic in your empty methods:
 #### 10/ Creating the index.php file
