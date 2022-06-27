@@ -53,6 +53,17 @@ class Blackjack {
     private object $deck;
 ```
 #### 6/ Add the following public methods:
+```php
+    public function getPlayer(){
+        return $this->player;
+    }
+    public function getDealer() {
+        return $this->dealer;
+    }
+    public function getDeck() {
+        return $this->deck;
+    }
+    ```
 #### 7/ In the constructor do the following:
 #### 8/ In the constructor of the Player class;
 #### 9/ Go back to the Player class and add the following logic in your empty methods:
