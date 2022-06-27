@@ -14,6 +14,11 @@ sooo off to the task.
 
 ### instructions
 #### 1/ Create a class called Player in the file Player.php.
+```php
+    class Player {
+    
+    }
+```
 #### 2/ Add 2 private properties: cards (array), lost (bool, default = false)
 #### 3/ Add a couple of empty public methods to this class:
 #### 4/ Create a class called Blackjack in the file Blackjack.php
