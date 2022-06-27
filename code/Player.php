@@ -22,7 +22,7 @@ class Player {
     public function surrender(){
 
     }
-    public function getScore():int{
+    public function getScore(array $cardsArray):int{
         $score = 0;
         foreach($cardsArray as $card){
            $score += $card->getValue();

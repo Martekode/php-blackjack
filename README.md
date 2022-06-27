@@ -109,7 +109,7 @@ this is my first iteration of the code... this is probably not going to work. Bu
 ```
 after creating the hit function i revised a bit again to take the cards array as a parameter
 ```php
-    public function getScore():int{
+    public function getScore(array $cardsArray):int{
         $score = 0;
         foreach($cardsArray as $card){
            $score += $card->getValue();
