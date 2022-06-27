@@ -5,7 +5,7 @@
 
     public function __construct(){
         $this->player = new Player;
-        $this->dealer = new Player;
+        $this->dealer = new Dealer;
         $this->deck = new Deck;
         //possible that it's $shuffledDeck = $this->deck->shuffle;
         $this->deck->shuffle();
