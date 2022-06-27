@@ -75,5 +75,9 @@ class Blackjack {
     }
 ```
 #### 8/ In the constructor of the Player class;
+```php
+    $this->cards[] = $deck->drawCard();
+    $this->cards[] = $deck->drawCard();
+```
 #### 9/ Go back to the Player class and add the following logic in your empty methods:
 #### 10/ Creating the index.php file
