@@ -81,7 +81,7 @@ class Blackjack {
 ```
 A lot of confusion started here... Its became difficult to understand what method was wich class or the other and also how to address certain things. because it is ez to say: "oh, yea pass the deck from the blackjack class" but it's hard to just write that down. from what blackjack object??? haven't declared it... Aperently it's Deck $deck just passing Deck as type is good enough and then later $blackjack->getDeck(); or smth..I also thought darwCard was private so that confused mee too. (how am i gonna draw a card from an object that doesn't possess that method to draw.. it's public so no problems).
 ### 9/ Go back to the Player class and add the following logic in your empty methods:
-#### 9.1/  getScore()
+* #### getScore()
 ```php
     public function getScore(){
         $counter = 1;
@@ -96,7 +96,7 @@ A lot of confusion started here... Its became difficult to understand what metho
     }
 ```
 this is my first iteration of the code... this is probably not going to work. But either way it will suffise as guidance at debugging stage;
-* after fixing the IDE error
+* * after fixing the IDE error
 ```php
     public function getScore():int{
         $score = 0;
@@ -119,14 +119,14 @@ after creating the hit function i revised a bit again to take the cards array as
     }
 ```
 
-#### 9.2/  hasLost()
+* #### hasLost()
 ```php
     public function hasLost(): bool{
         return $this->lost;
     }
 ```
 i think this is oke, we'll see later on
-#### 9.3/  hit()
+* #### hit()
 ```php
     public function hit(Deck $deck):void{
         $this->cards[] += $deck->drawCard();
@@ -135,7 +135,7 @@ i think this is oke, we'll see later on
         }
     }
 ```
-#### 9.4/  surrender()
+* #### surrender()
 ```php
     public function surrender(){
         $this->lost = true;
