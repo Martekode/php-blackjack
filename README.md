@@ -107,11 +107,32 @@ this is my first iteration of the code... this is probably not going to work. Bu
 
     }
 ```
+after creating the hit function i revised a bit again to take the cards array as a parameter
+```php
+    public function getScore():int{
+        $score = 0;
+        foreach($cardsArray as $card){
+           $score += $card->getValue();
+        }
+        return $score;
+
+    }
+```
+
 ##### hasLost()
 ```php
     public function hasLost(): bool{
         return $this->lost;
     }
 ```
-i think this is oke we'll see later on
+i think this is oke, we'll see later on
+##### hit()
+```php
+    public function hit(Deck $deck):void{
+        $this->cards[] += $deck->drawCard();
+        if(getScore($this->cards) > $this->blackJack){
+            $this->lost = true;
+        }
+    }
+```
 #### 10/ Creating the index.php file
