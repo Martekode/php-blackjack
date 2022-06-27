@@ -6,6 +6,8 @@ require ('./code/Deck.php');
 require ('./code/example.php');
 require ('./code/Suit.php');
 
-
+if (!$_SESSION[$blackjack]){
+    $_SESSION[$blackjack] = new Blackjack;
+}
 
 ?>

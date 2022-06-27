@@ -158,3 +158,16 @@ require ('./code/Suit.php');
 
 ```
 * #### just resuired them will see where to place em next. (see above)
+* #### if the session does not have a Blackjack variable yet
+```php
+if (!$_SESSION[$blackjack]){
+}
+```
+fi session check
+* #### Put the Blackjack object in the session
+```php
+if (!$_SESSION[$blackjack]){
+    $_SESSION[$blackjack] = new Blackjack;
+}
+```
+placed in the session blackjack variable
