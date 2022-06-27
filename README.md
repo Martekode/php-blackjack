@@ -3,7 +3,7 @@ today i'm goig to try and make a php blackjack game. I suspect this is going to 
 
 sooo off to the task.
 ## important notes 
-### flow:
+## flow:
 * shuffle deck
 * player ander dealer both 2 rnd cards
 * first deadler card shows
@@ -12,20 +12,20 @@ sooo off to the task.
 * after the player the dealer keeps hittting until 15 points minimum after that he stands or busts
 * compare card values and show winner
 
-### instructions
-#### 1/ Create a class called Player in the file Player.php.
+## instructions
+### 1/ Create a class called Player in the file Player.php.
 ```php
     class Player {
     
     }
 ```
-#### 2/ Add 2 private properties: cards (array), lost (bool, default = false)
+### 2/ Add 2 private properties: cards (array), lost (bool, default = false)
 ```php
     private array $cards = [];
     private bool $lost = false;
 ```
 
-#### 3/ Add a couple of empty public methods to this class:
+### 3/ Add a couple of empty public methods to this class:
 ```php
     public function hit(){
 
@@ -40,19 +40,19 @@ sooo off to the task.
 
     }
 ```
-#### 4/ Create a class called Blackjack in the file Blackjack.php
+### 4/ Create a class called Blackjack in the file Blackjack.php
 ```php
 class Blackjack {
 
 }
 ```
-#### 5/ Add 3 private properties
+### 5/ Add 3 private properties
 ```php
     private object $player;
     private object $dealer;
     private object $deck;
 ```
-#### 6/ Add the following public methods:
+### 6/ Add the following public methods:
 ```php
     public function getPlayer(){
         return $this->player;
@@ -64,7 +64,7 @@ class Blackjack {
         return $this->deck;
     }
 ```
-#### 7/ In the constructor do the following:
+### 7/ In the constructor do the following:
 ```php
     public function __construct(){
         $this->player = new Player;
@@ -74,14 +74,14 @@ class Blackjack {
         $this->deck->shuffle();
     }
 ```
-#### 8/ In the constructor of the Player class;
+### 8/ In the constructor of the Player class;
 ```php
     $this->cards[] += $deck->drawCard();
     $this->cards[] += $deck->drawCard();
 ```
 A lot of confusion started here... Its became difficult to understand what method was wich class or the other and also how to address certain things. because it is ez to say: "oh, yea pass the deck from the blackjack class" but it's hard to just write that down. from what blackjack object??? haven't declared it... Aperently it's Deck $deck just passing Deck as type is good enough and then later $blackjack->getDeck(); or smth..I also thought darwCard was private so that confused mee too. (how am i gonna draw a card from an object that doesn't possess that method to draw.. it's public so no problems).
-#### 9/ Go back to the Player class and add the following logic in your empty methods:
-##### getScore()
+###9/ Go back to the Player class and add the following logic in your empty methods:
+#### getScore()
 ```php
     public function getScore(){
         $counter = 1;
@@ -119,14 +119,14 @@ after creating the hit function i revised a bit again to take the cards array as
     }
 ```
 
-##### hasLost()
+#### hasLost()
 ```php
     public function hasLost(): bool{
         return $this->lost;
     }
 ```
 i think this is oke, we'll see later on
-##### hit()
+#### hit()
 ```php
     public function hit(Deck $deck):void{
         $this->cards[] += $deck->drawCard();
@@ -135,4 +135,12 @@ i think this is oke, we'll see later on
         }
     }
 ```
-#### 10/ Creating the index.php file
+#### surrender()
+```php
+    public function surrender(){
+        $this->lost = true;
+    }
+```
+sets lost to true
+
+### 10/ Creating the index.php file
