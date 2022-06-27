@@ -1,4 +1,7 @@
 # php-blackjack
+today i'm goig to try and make a php blackjack game. I suspect this is going to be defficult sinds i always have troubles using someone elses code. i will probably loose a lot of time to get what all the code already does. i'll try my best even if it fails in the end. i'll have a clearer image off OOP in return i hope...
+
+sooo off to the task.
 ## important notes 
 ### flow:
 * shuffle deck
