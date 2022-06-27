@@ -3,11 +3,11 @@
     private Dealer $dealer;
     private Deck $deck;
 
-    public function __construct(Deck $deck){
-        $this->player = new Player() ;
-        $this->dealer = new Dealer() ;
+    public function __construct(){
         $this->deck = new Deck() ;
         $this->deck->shuffle();
+        $this->player = new Player($this->deck) ;
+        $this->dealer = new Dealer($this->deck) ;
     }
 
     public function getPlayer(){
