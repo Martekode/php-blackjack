@@ -8,8 +8,8 @@ class Player {
     a new object, i don't know how to address the $deck... so
     $deck ass placeholder for now*/
     public function __construct(Deck $deck){
-        $this->cards[] = $deck->drawCard();
-        $this->cards[] = $deck->drawCard();
+        $this->cards[] += $deck->drawCard();
+        $this->cards[] += $deck->drawCard();
     }
 
     public function hit(){
