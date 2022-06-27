@@ -201,3 +201,19 @@ created a new Dealer.php file and wrote this code.
         $this->deck->shuffle();
     }
 ```
+* #### Now create a hit function that keeps drawing cards until the dealer has at least 15 points. The tricky part is that we also need the lost check we already had in the hit function of the player. We could just copy the code but duplicated code is never the solution, instead you can use the following code to call the old hit function:
+
+parent::hit();
+```php
+    private int $treshHold = 15;
+
+    public function dealerHit($cardsArray,Deck $deck){
+        if(getScore($cardsArray)< $this->treshHold){
+            $this->cards[] += $deck->drawCard();
+        }
+        else{
+            parent::hit();
+        }
+    }
+```
+created treshhold instead ofmagic number and an else statement for the paren::hit(), don't know if this is right but i keep it as placeholder.
