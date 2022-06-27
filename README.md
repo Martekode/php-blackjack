@@ -144,7 +144,7 @@ i think this is oke, we'll see later on
 sets lost to true
 
 ### 10/ Creating the index.php file
-#### * created index.php file outside of code folder
+* #### created index.php file outside of code folder
 ```php
  
 require ('./code/Player.php');
@@ -157,4 +157,4 @@ require ('./code/Suit.php');
 
 
 ```
-#### * just resuired them will see where to place em next. (see above)
+* #### just resuired them will see where to place em next. (see above)
