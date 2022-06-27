@@ -50,7 +50,7 @@ class Blackjack {
 ```php
     private object $player;
     private object $dealer;
-    private array $deck = [];
+    private object $deck;
 ```
 #### 6/ Add the following public methods:
 #### 7/ In the constructor do the following:
