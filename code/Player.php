@@ -19,6 +19,14 @@ class Player {
 
     }
     public function getScore(){
+        $counter = 1;
+        $factors = [];
+        foreach($this->cards as $key => $value){
+            $factors[$counter] = $this->cards[$key]->$value[1];
+            $counter++;
+        }
+        $sum = $factors[0] + $factors[1];
+        return $sum;
 
     }
     public function hasLost(){
