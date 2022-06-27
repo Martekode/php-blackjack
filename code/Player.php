@@ -18,19 +18,16 @@ class Player {
     public function surrender(){
 
     }
-    public function getScore(){
-        $counter = 1;
-        $factors = [];
-        foreach($this->cards as $key => $value){
-            $factors[$counter] = $this->cards[$key]->$value[1];
-            $counter++;
+    public function getScore():int{
+        $score = 0;
+        foreach($this->cards as $card){
+           $score += $card->getValue();
         }
-        $sum = $factors[0] + $factors[1];
-        return $sum;
+        return $score;
 
     }
-    public function hasLost(){
-
+    public function hasLost(): bool{
+        return $this->lost;
     }
 
 }
