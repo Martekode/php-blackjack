@@ -21,13 +21,13 @@ sooo off to the task.
 ```
 #### 2/ Add 2 private properties: cards (array), lost (bool, default = false)
 ```php
-     private array $cards = [];
+    private array $cards = [];
     private bool $lost = false;
 ```
 
 #### 3/ Add a couple of empty public methods to this class:
 ```php
-public function hit(){
+    public function hit(){
 
     }
     public function surrender(){
@@ -41,7 +41,17 @@ public function hit(){
     }
 ```
 #### 4/ Create a class called Blackjack in the file Blackjack.php
+```php
+class Blackjack {
+
+}
+```
 #### 5/ Add 3 private properties
+```php
+    private array $player = [];
+    private array $dealer = [];
+    private array $deck = [];
+```
 #### 6/ Add the following public methods:
 #### 7/ In the constructor do the following:
 #### 8/ In the constructor of the Player class;
