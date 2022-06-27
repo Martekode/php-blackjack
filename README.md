@@ -48,8 +48,8 @@ class Blackjack {
 ```
 #### 5/ Add 3 private properties
 ```php
-    private array $player = [];
-    private array $dealer = [];
+    private object $player;
+    private object $dealer;
     private array $deck = [];
 ```
 #### 6/ Add the following public methods:

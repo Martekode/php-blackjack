@@ -1,5 +1,5 @@
 <?php class Blackjack {
-    private array $player = [];
-    private array $dealer = [];
+    private object $player;
+    private object $dealer;
     private array $deck = [];
 }
