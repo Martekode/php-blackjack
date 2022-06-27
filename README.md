@@ -85,8 +85,8 @@ class Blackjack {
 passed deck as parameter, sinds it is already made in examples.php and also shuffled so deleted that.
 ### 8/ In the constructor of the Player class;
 ```php
-    $this->cards[] += $deck->drawCard();
-    $this->cards[] += $deck->drawCard();
+    $this->cards[] = $deck->drawCard();
+    $this->cards[] = $deck->drawCard();
 ```
 A lot of confusion started here... Its became difficult to understand what method was wich class or the other and also how to address certain things. because it is ez to say: "oh, yea pass the deck from the blackjack class" but it's hard to just write that down. from what blackjack object??? haven't declared it... Aperently it's Deck $deck just passing Deck as type is good enough and then later $blackjack->getDeck(); or smth..I also thought darwCard was private so that confused mee too. (how am i gonna draw a card from an object that doesn't possess that method to draw.. it's public so no problems).
 ### 9/ Go back to the Player class and add the following logic in your empty methods:
@@ -207,9 +207,9 @@ parent::hit();
 ```php
     private int $treshHold = 15;
 
-    public function dealerHit($cardsArray,Deck $deck){
+    public function hit($cardsArray,Deck $deck){
         if(getScore($cardsArray)< $this->treshHold){
-            $this->cards[] += $deck->drawCard();
+            $this->cards[] = $deck->drawCard();
         }
         else{
             parent::hit();

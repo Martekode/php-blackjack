@@ -9,12 +9,12 @@ class Player {
     a new object, i don't know how to address the $deck... so
     $deck ass placeholder for now*/
     public function __construct(Deck $deck){
-        $this->cards[] += $deck->drawCard();
-        $this->cards[] += $deck->drawCard();
+        $this->cards[] = $deck->drawCard();
+        $this->cards[] = $deck->drawCard();
     }
 
     public function hit(Deck $deck):void{
-        $this->cards[] += $deck->drawCard();
+        $this->cards[] = $deck->drawCard();
         if(getScore($this->cards) > $this->blackJack){
             $this->lost = true;
         }
@@ -22,9 +22,9 @@ class Player {
     public function surrender(){
         $this->lost = true;
     }
-    public function getScore(array $cardsArray):int{
+    public function getScore():int{
         $score = 0;
-        foreach($cardsArray as $card){
+        foreach($this->cards as $card){
            $score += $card->getValue();
         }
         return $score;
