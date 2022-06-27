@@ -74,6 +74,15 @@ class Blackjack {
         $this->deck->shuffle();
     }
 ```
+* new iteration
+```php
+    public function __construct($deck){
+        $this->player = new Player;
+        $this->dealer = new Dealer;
+        $this->deck = $deck;
+    }
+```
+passed deck as parameter, sinds it is already made in examples.php and also shuffled so deleted that.
 ### 8/ In the constructor of the Player class;
 ```php
     $this->cards[] += $deck->drawCard();
@@ -184,10 +193,10 @@ class Dealer extends Player {
 created a new Dealer.php file and wrote this code.
 * #### offcourse we need to change this now in blackjack class
 ```php
-    public function __construct(){
+    public function __construct($deck){
         $this->player = new Player;
         $this->dealer = new Dealer;
-        $this->deck = new Deck;
+        $this->deck = $deck
         //possible that it's $shuffledDeck = $this->deck->shuffle;
         $this->deck->shuffle();
     }
