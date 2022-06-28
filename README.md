@@ -83,6 +83,16 @@ class Blackjack {
     }
 ```
 passed deck as parameter, sinds it is already made in examples.php and also shuffled so deleted that.
+* new iteration 2
+```php
+    public function __construct(){
+        $this->deck = new Deck() ;
+        $this->deck->shuffle();
+        $this->player = new Player($this->deck) ;
+        $this->dealer = new Dealer($this->deck) ;
+    }
+```
+not passing anything through parameters, structure changed too, to prevent errors.
 ### 8/ In the constructor of the Player class;
 ```php
     $this->cards[] = $deck->drawCard();
@@ -121,6 +131,17 @@ after creating the hit function i revised a bit again to take the cards array as
     public function getScore(array $cardsArray):int{
         $score = 0;
         foreach($cardsArray as $card){
+           $score += $card->getValue();
+        }
+        return $score;
+
+    }
+```
+again this was reverted for the same reasons as stated with the other revisions you are going to see.
+```php
+    public function getScore():int{
+        $score = 0;
+        foreach($this->cards as $card){
            $score += $card->getValue();
         }
         return $score;
@@ -217,3 +238,11 @@ parent::hit();
     }
 ```
 created treshhold instead ofmagic number and an else statement for the paren::hit(), don't know if this is right but i keep it as placeholder.
+* a lot has changed sinds yesterday... somethimes when i passed the $this->cards array as a parameter, it wasn't really the best choice. i yhought it was fine but after some thinking if someone finds this function and passes another param it would break. so deleted the $cardsArray param:
+```php
+    public function hit(Deck $deck):void{
+        if($this->getScore() < $this->treshHold){
+            parent::hit($deck);
+        }
+    }
+```
