@@ -351,3 +351,10 @@ if(isset($_POST['restart'])){
     $_SESSION['blackjack']->restart();
 }
 ```
+fixed a bug while i'm at it 
+```php
+if(isset($_POST['restart'])){
+    $_SESSION['blackjack']->restart();
+    unset($_POST['hit']);
+}
+```

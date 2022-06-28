@@ -17,6 +17,7 @@ if (!isset($_SESSION['blackjack'])){
 //logic for buttons
 if(isset($_POST['hit'])){
     $_SESSION['blackjack']->getPlayer()->hit($_SESSION['blackjack']->getDeck());
+    unset($_POST['hit']);
 }
 if(isset($_POST['restart'])){
     $_SESSION['blackjack']->restart();
