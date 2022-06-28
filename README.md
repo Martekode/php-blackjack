@@ -165,6 +165,15 @@ i think this is oke, we'll see later on
         }
     }
 ```
+removed the += and changed it to just = sinds that is the equivalent of array_push.
+```php
+    public function hit(Deck $deck):void{
+        $this->cards[] = $deck->drawCard();
+        if(getScore($this->cards) > $this->blackJack){
+            $this->lost = true;
+        }
+    }
+```
 * #### surrender()
 ```php
     public function surrender(){
@@ -201,6 +210,19 @@ if (!$_SESSION[$blackjack]){
 }
 ```
 placed in the session blackjack variable
+============
+this was changed to:
+```php
+session_start();
+if (!isset($_SESSION['blackjack'])){
+    $_SESSION['blackjack'] = new Blackjack;
+}
+foreach($_SESSION['blackjack']->getDeck()->getCards() AS $card) {
+    echo $card->getUnicodeCharacter(true);
+    echo '<br>';
+}
+```
+as you can see i had to change it to 'blackjack', instead of $deck it is getDeck sinds it was private
 * #### buttons
 as of now i need more context and will ask the coaches for some help to create these buttons
 
@@ -214,12 +236,11 @@ class Dealer extends Player {
 created a new Dealer.php file and wrote this code.
 * #### offcourse we need to change this now in blackjack class
 ```php
-    public function __construct($deck){
-        $this->player = new Player;
-        $this->dealer = new Dealer;
-        $this->deck = $deck
-        //possible that it's $shuffledDeck = $this->deck->shuffle;
+    public function __construct(){
+        $this->deck = new Deck() ;
         $this->deck->shuffle();
+        $this->player = new Player($this->deck) ;
+        $this->dealer = new Dealer($this->deck) ;
     }
 ```
 * #### Now create a hit function that keeps drawing cards until the dealer has at least 15 points. The tricky part is that we also need the lost check we already had in the hit function of the player. We could just copy the code but duplicated code is never the solution, instead you can use the following code to call the old hit function:
