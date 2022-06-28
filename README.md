@@ -368,12 +368,12 @@ if(isset($_POST['stand'])){
 next up, we'll add dealer visability
 ```php
         <div class="row">
-            <?php if(!$_SESSION['stand']):?>
+            <?php if(!$_POST['stand']):?>
                 <div style="text-align:center; font-size:100px;" class="card col-lg-3">
                     <?= $_SESSION['blackjack']->getDealer()->getCards()[0]->getUnicodeCharacter(true);?>
                 </div>
             <?php endif;?>
-            <?php if ($_SESSION['stand']):?>
+            <?php if ($_POST['stand']):?>
                 <?php foreach ($_SESSION['blackjack']->getDealer()->getCards() AS $card):?>
                     <div style="text-align:center; font-size:100px" class="card col-lg-3">  
                         <?= $card->getUnicodeCharacter(true); ?>
@@ -383,3 +383,38 @@ next up, we'll add dealer visability
         </div>
 ```
 little broken..
+fixed it $_POST stand instead of $_SESSION stand
+* inside the blackjack class
+messaging
+```php
+    public function messaging():string{
+        if($this->getPlayer()->getScore() > $this->blackJack){
+            $this->message = "Player Busted: " . $this->getPlayer()->getScore().", Dealer wins!!";
+            return $this->message;
+        }
+        elseif($this->getDealer()->getScore() > $this->blackJack){
+            $this->message = "Dealer Busted: " . $this->getDealer()->getScore() . ", Player wins!!";
+            return $this->message;
+        }
+        elseif($this->getPlayer()->getScore() == $this->getDealer()->getScore()){
+            $this->message = "It's a Draw";
+            return $this->message;
+        }
+        elseif(!isset($_POST['stand'])){
+            $this->message = "game still going on";
+            return $this->message;
+        }
+        elseif(isset($_POST['stand'])){
+            if($this->getPlayer()->getScore() > $this->getDealer()->getScore()){
+                $this->message = "Player Wins";
+                return $this->message;
+            }elseif($this->getPlayer()->getScore() < $this->getDealer()->getScore()){
+                $this->message = "Dealer Wins";
+                return $this->message;
+            }
+        }
+        return $this->message;
+    }
+```
+basic functionality works now. 
+![basic functionality](./images/m2.png "basic functionality")

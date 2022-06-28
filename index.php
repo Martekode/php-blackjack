@@ -54,12 +54,12 @@ if(isset($_POST['stand'])){
             <?php endforeach;?>
         </div>
         <div class="row">
-            <?php if(!$_SESSION['stand']):?>
+            <?php if(!isset($_POST['stand'])):?>
                 <div style="text-align:center; font-size:100px;" class="card col-lg-3">
                     <?= $_SESSION['blackjack']->getDealer()->getCards()[0]->getUnicodeCharacter(true);?>
                 </div>
             <?php endif;?>
-            <?php if ($_SESSION['stand']):?>
+            <?php if (isset($_POST['stand'])):?>
                 <?php foreach ($_SESSION['blackjack']->getDealer()->getCards() AS $card):?>
                     <div style="text-align:center; font-size:100px" class="card col-lg-3">  
                         <?= $card->getUnicodeCharacter(true); ?>

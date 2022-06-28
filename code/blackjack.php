@@ -3,7 +3,7 @@
     private Dealer $dealer;
     private Deck $deck;
     private int $blackJack = 21;
-    private string $message;
+    private string $message = "lala";
     private int $threshHold = 15;
 
     public function __construct(){
@@ -39,6 +39,16 @@
             $this->message = "game still going on";
             return $this->message;
         }
+        elseif(isset($_POST['stand'])){
+            if($this->getPlayer()->getScore() > $this->getDealer()->getScore()){
+                $this->message = "Player Wins";
+                return $this->message;
+            }elseif($this->getPlayer()->getScore() < $this->getDealer()->getScore()){
+                $this->message = "Dealer Wins";
+                return $this->message;
+            }
+        }
+        return $this->message;
     }
     public function restart(){
         $this->deck = new Deck() ;
