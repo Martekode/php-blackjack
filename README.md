@@ -225,7 +225,14 @@ foreach($_SESSION['blackjack']->getDeck()->getCards() AS $card) {
 as you can see i had to change it to 'blackjack', instead of $deck it is getDeck sinds it was private
 * #### buttons
 as of now i need more context and will ask the coaches for some help to create these buttons
-
+```html
+   <form style="text-align:center;" method="post">
+        <button name="hit">hit</button>
+        <button name="stand">stand</button>
+        <button name="surrender">surrender</button>
+   </form>
+```
+html added for the buttons
 ### 11/  the dealer 
 * #### the extention
 ```php
@@ -267,3 +274,25 @@ created treshhold instead ofmagic number and an else statement for the paren::hi
         }
     }
 ```
+## next we go further in depth into the index.php
+bootstrap : 
+```html
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+```
+js: 
+```html
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+```
+foreach added for the player cards
+```php
+   <div class="container">
+        <div class="row">
+            <?php foreach($_SESSION['blackjack']->getPlayer()->getCards() AS $card):?>
+                <div style="text-align:center; font-size:100px;" class="card col-lg-6">
+                    <?= $card->getUnicodeCharacter(true);?>
+                </div>    
+            <?php endforeach;?>
+        </div>
+   </div>
+```
+![player cards](./images/m1.png "player cards")

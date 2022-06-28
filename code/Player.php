@@ -33,5 +33,9 @@ class Player {
     public function hasLost(): bool{
         return $this->lost;
     }
+    public function getCards() : array
+    {
+        return $this->cards;
+    }
 
 }
