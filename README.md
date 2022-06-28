@@ -438,7 +438,8 @@ dealer visibility
 $_SESSION['blackjack']->getPlayer()->hasLost()
 ```
 in various places so that when the player loses the price and cards of the dealer also display
-======== 
+
+
 plans for tomorrow if we have time left:
 * look to make a betting system 
 * player money in session
