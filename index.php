@@ -22,6 +22,9 @@ if(isset($_POST['hit'])){
 if(isset($_POST['restart'])){
     $_SESSION['blackjack']->restart();
 }
+if(isset($_POST['stand'])){
+    $_SESSION['blackjack']->getDealer()->hit($_SESSION['blackjack']->getDeck());
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +52,20 @@ if(isset($_POST['restart'])){
                     <?= $card->getUnicodeCharacter(true);?>
                 </div>    
             <?php endforeach;?>
+        </div>
+        <div class="row">
+            <?php if(!$_SESSION['stand']):?>
+                <div style="text-align:center; font-size:100px;" class="card col-lg-3">
+                    <?= $_SESSION['blackjack']->getDealer()->getCards()[0]->getUnicodeCharacter(true);?>
+                </div>
+            <?php endif;?>
+            <?php if ($_SESSION['stand']):?>
+                <?php foreach ($_SESSION['blackjack']->getDealer()->getCards() AS $card):?>
+                    <div style="text-align:center; font-size:100px" class="card col-lg-3">  
+                        <?= $card->getUnicodeCharacter(true); ?>
+                    </div>
+                <?php endforeach;?>
+            <?php endif;?>
         </div>
    </div>
 

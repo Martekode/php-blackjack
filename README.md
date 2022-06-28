@@ -358,3 +358,28 @@ if(isset($_POST['restart'])){
     unset($_POST['hit']);
 }
 ```
+after this we do stand functionality: it's going to let the dealer hit.
+```php
+if(isset($_POST['stand'])){
+    $_SESSION['blackjack']->getDealer()->hit();
+    unset($_POST['stand']);
+}
+```
+next up, we'll add dealer visability
+```php
+        <div class="row">
+            <?php if(!$_SESSION['stand']):?>
+                <div style="text-align:center; font-size:100px;" class="card col-lg-3">
+                    <?= $_SESSION['blackjack']->getDealer()->getCards()[0]->getUnicodeCharacter(true);?>
+                </div>
+            <?php endif;?>
+            <?php if ($_SESSION['stand']):?>
+                <?php foreach ($_SESSION['blackjack']->getDealer()->getCards() AS $card):?>
+                    <div style="text-align:center; font-size:100px" class="card col-lg-3">  
+                        <?= $card->getUnicodeCharacter(true); ?>
+                    </div>
+                <?php endforeach;?>
+            <?php endif;?>
+        </div>
+```
+little broken..
