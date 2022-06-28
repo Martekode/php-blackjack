@@ -335,3 +335,19 @@ here is some of the beginning code
         }
     }
 ```
+* also have to add logic for buttons
+restart function
+```php
+    public function restart(){
+        $this->deck = new Deck() ;
+        $this->deck->shuffle();
+        $this->player = new Player($this->deck) ;
+        $this->dealer = new Dealer($this->deck) ;
+    }
+```
+in the button
+```php
+if(isset($_POST['restart'])){
+    $_SESSION['blackjack']->restart();
+}
+```

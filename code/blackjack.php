@@ -40,4 +40,10 @@
             return $this->message;
         }
     }
+    public function restart(){
+        $this->deck = new Deck() ;
+        $this->deck->shuffle();
+        $this->player = new Player($this->deck) ;
+        $this->dealer = new Dealer($this->deck) ;
+    }
 }

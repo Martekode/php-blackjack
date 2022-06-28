@@ -15,7 +15,7 @@ class Player {
 
     public function hit(Deck $deck):void{
         $this->cards[] = $deck->drawCard();
-        if(getScore($this->cards) > $this->blackJack){
+        if($this->getScore($this->cards) > $this->blackJack){
             $this->lost = true;
         }
     }

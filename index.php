@@ -14,6 +14,13 @@ if (!isset($_SESSION['blackjack'])){
 //     echo '<br>';
 // }
 
+//logic for buttons
+if(isset($_POST['hit'])){
+    $_SESSION['blackjack']->getPlayer()->hit($_SESSION['blackjack']->getDeck());
+}
+if(isset($_POST['restart'])){
+    $_SESSION['blackjack']->restart();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,13 +38,13 @@ if (!isset($_SESSION['blackjack'])){
         <button name="surrender">surrender</button>
         <button name="restart">restart</button>
    </form> 
-   <div class="message">
+   <div style="text-align:center; font-size:30px;" class="message">
     <?= $_SESSION['blackjack']->messaging() ?>
    </div>
    <div class="container">
         <div class="row">
             <?php foreach($_SESSION['blackjack']->getPlayer()->getCards() AS $card):?>
-                <div style="text-align:center; font-size:100px;" class="card col-lg-6">
+                <div style="text-align:center; font-size:100px;" class="card col-lg-3">
                     <?= $card->getUnicodeCharacter(true);?>
                 </div>    
             <?php endforeach;?>
