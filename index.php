@@ -29,7 +29,11 @@ if (!isset($_SESSION['blackjack'])){
         <button name="hit">hit</button>
         <button name="stand">stand</button>
         <button name="surrender">surrender</button>
+        <button name="restart">restart</button>
    </form> 
+   <div class="message">
+    <?= $_SESSION['blackjack']->messaging() ?>
+   </div>
    <div class="container">
         <div class="row">
             <?php foreach($_SESSION['blackjack']->getPlayer()->getCards() AS $card):?>

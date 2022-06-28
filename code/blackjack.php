@@ -2,6 +2,9 @@
     private Player $player;
     private Dealer $dealer;
     private Deck $deck;
+    private int $blackJack = 21;
+    private string $message;
+    private int $threshHold = 15;
 
     public function __construct(){
         $this->deck = new Deck() ;
@@ -18,5 +21,23 @@
     }
     public function getDeck() {
         return $this->deck;
+    }
+    public function messaging():string{
+        if($this->getPlayer()->getScore() > $this->blackJack){
+            $this->message = "Player Busted: " . $this->getPlayer()->getScore().", Dealer wins!!";
+            return $this->message;
+        }
+        elseif($this->getDealer()->getScore() > $this->blackJack){
+            $this->message = "Dealer Busted: " . $this->getDealer()->getScore() . ", Player wins!!";
+            return $this->message;
+        }
+        elseif($this->getPlayer()->getScore() == $this->getDealer()->getScore()){
+            $this->message = "It's a Draw";
+            return $this->message;
+        }
+        elseif(!isset($_POST['stand'])){
+            $this->message = "game still going on";
+            return $this->message;
+        }
     }
 }

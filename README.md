@@ -296,3 +296,42 @@ foreach added for the player cards
    </div>
 ```
 ![player cards](./images/m1.png "player cards")
+### messaging system 
+work inprogress 
+============
+added a line to give the player a message
+```html
+   <div class="message">
+    <?= $_SESSION['blackjack']->messaging() ?>
+   </div>
+```
+now i have to write the logic
+here is some of the beginning code
+* added some private porperties to the Blackjack class
+```php
+    private int $blackJack = 21;
+    private string $message;
+    private int $threshHold = 15;
+```
+
+* added messaging function to same class
+```php
+    public function messaging():string{
+        if($this->getPlayer()->getScore() > $this->blackJack){
+            $this->message = "Player Busted: " . $this->getPlayer()->getScore().", Dealer wins!!";
+            return $this->message;
+        }
+        elseif($this->getDealer()->getScore() > $this->blackJack){
+            $this->message = "Dealer Busted: " . $this->getDealer()->getScore() . ", Player wins!!";
+            return $this->message;
+        }
+        elseif($this->getPlayer()->getScore() == $this->getDealer()->getScore()){
+            $this->message = "It's a Draw";
+            return $this->message;
+        }
+        elseif(!isset($_POST['stand'])){
+            $this->message = "game still going on";
+            return $this->message;
+        }
+    }
+```
