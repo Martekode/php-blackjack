@@ -418,3 +418,7 @@ messaging
 ```
 basic functionality works now. 
 ![basic functionality](./images/m2.png "basic functionality")
+added some score visability
+```php 
+<h1>You: <?= $_SESSION['blackjack']->getPlayer()->getScore() ?></h1>
+```

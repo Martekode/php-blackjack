@@ -46,6 +46,7 @@ if(isset($_POST['stand'])){
     <?= $_SESSION['blackjack']->messaging() ?>
    </div>
    <div class="container">
+        <h1>You: <?= $_SESSION['blackjack']->getPlayer()->getScore() ?></h1>
         <div class="row">
             <?php foreach($_SESSION['blackjack']->getPlayer()->getCards() AS $card):?>
                 <div style="text-align:center; font-size:100px;" class="card col-lg-3">
@@ -53,6 +54,7 @@ if(isset($_POST['stand'])){
                 </div>    
             <?php endforeach;?>
         </div>
+        <h1>Da House</h1>
         <div class="row">
             <?php if(!isset($_POST['stand'])):?>
                 <div style="text-align:center; font-size:100px;" class="card col-lg-3">
