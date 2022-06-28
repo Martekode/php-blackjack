@@ -54,7 +54,14 @@ if(isset($_POST['stand'])){
                 </div>    
             <?php endforeach;?>
         </div>
-        <h1>Da House</h1>
+        <h1>Da House: <?php
+                if(isset($_POST['stand'])){
+                    echo $_SESSION['blackjack']->getDealer()->getScore();
+                }else{
+                    echo "???";
+                }
+            ?>
+        </h1>
         <div class="row">
             <?php if(!isset($_POST['stand'])):?>
                 <div style="text-align:center; font-size:100px;" class="card col-lg-3">

@@ -365,7 +365,7 @@ if(isset($_POST['stand'])){
     unset($_POST['stand']);
 }
 ```
-next up, we'll add dealer visability
+next up, we'll add dealer visibility
 ```php
         <div class="row">
             <?php if(!$_POST['stand']):?>
@@ -418,7 +418,19 @@ messaging
 ```
 basic functionality works now. 
 ![basic functionality](./images/m2.png "basic functionality")
-added some score visability
+added some score visibility
 ```php 
 <h1>You: <?= $_SESSION['blackjack']->getPlayer()->getScore() ?></h1>
 ```
+dealer visibility
+```php	
+        <h1>Da House: <?php
+                if(isset($_POST['stand'])){
+                    echo $_SESSION['blackjack']->getDealer()->getScore();
+                }else{
+                    echo "???";
+                }
+            ?>
+        </h1>
+```
+
