@@ -24,6 +24,7 @@
     }
     public function messaging():string{
         if($this->getPlayer()->getScore() > $this->blackJack){
+            $this->getPlayer()->setLost(true);
             $this->message = "Player Busted: " . $this->getPlayer()->getScore().", Dealer wins!!";
             return $this->message;
         }
@@ -33,6 +34,7 @@
         }
         elseif($this->getPlayer()->getScore() == $this->getDealer()->getScore()){
             $this->message = "It's a Draw";
+            $this->getPlayer()->setLost(true);
             return $this->message;
         }
         elseif(!isset($_POST['stand'])){
@@ -45,6 +47,7 @@
                 return $this->message;
             }elseif($this->getPlayer()->getScore() < $this->getDealer()->getScore()){
                 $this->message = "Dealer Wins";
+                $this->getPlayer()->setLost(true);
                 return $this->message;
             }
         }

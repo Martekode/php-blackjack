@@ -30,6 +30,9 @@ class Player {
         return $score;
 
     }
+    public function setLost($lost){
+        $this->lost = $lost;
+    }
     public function hasLost(): bool{
         return $this->lost;
     }

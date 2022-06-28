@@ -55,7 +55,7 @@ if(isset($_POST['stand'])){
             <?php endforeach;?>
         </div>
         <h1>Da House: <?php
-                if(isset($_POST['stand'])){
+                if(isset($_POST['stand']) || $_SESSION['blackjack']->getPlayer()->hasLost()){
                     echo $_SESSION['blackjack']->getDealer()->getScore();
                 }else{
                     echo "???";
@@ -68,7 +68,7 @@ if(isset($_POST['stand'])){
                     <?= $_SESSION['blackjack']->getDealer()->getCards()[0]->getUnicodeCharacter(true);?>
                 </div>
             <?php endif;?>
-            <?php if (isset($_POST['stand'])):?>
+            <?php if (isset($_POST['stand']) || $_SESSION['blackjack']->getPlayer()->hasLost()):?>
                 <?php foreach ($_SESSION['blackjack']->getDealer()->getCards() AS $card):?>
                     <div style="text-align:center; font-size:100px" class="card col-lg-3">  
                         <?= $card->getUnicodeCharacter(true); ?>
