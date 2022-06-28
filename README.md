@@ -433,4 +433,10 @@ dealer visibility
             ?>
         </h1>
 ```
+plans for tomorrow if we have time left:
+* look to make a betting system 
+* player money in session
+* rename restart button to play again
+* do some more css 
+* maybe add some messages on blackjack
 
