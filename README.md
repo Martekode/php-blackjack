@@ -462,6 +462,7 @@ if(isset($_POST['hit'])){
 
 }
 ```
+added some css too red for ded and green for wiin..
 
 plans for tomorrow if we have time left:
 * look to make a betting system 

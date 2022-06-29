@@ -47,7 +47,7 @@ if(isset($_POST['stand'])){
         <button class="btn-danger" name="surrender">surrender</button>
         <button class="btn-info" name="restart">restart</button>
    </form> 
-   <div style="text-align:center; font-size:30px;" class="message">
+   <div style="background-color:<?php if($_SESSION['blackjack']->getPlayer()->hasLost()){echo "red";}else{echo "lightgreen";}?>; text-align:center; font-size:30px;" class="message">
     <?= $_SESSION['blackjack']->messaging() ?>
    </div>
    <div class="container">
