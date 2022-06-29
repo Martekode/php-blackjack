@@ -437,8 +437,19 @@ dealer visibility
 ```php
 $_SESSION['blackjack']->getPlayer()->hasLost()
 ```
-in various places so that when the player loses the price and cards of the dealer also display
+in various places so that when the player loses the price * and cards of the dealer also display
+* refactured hit button
+```php
+if(isset($_POST['hit'])){
+    if($_SESSION['blackjack']->getPlayer()->getScore() >= 21){
+        echo "you are busted so no more hitting, try restart";
+    }else{
+        $_SESSION['blackjack']->getPlayer()->hit($_SESSION['blackjack']->getDeck());
+        unset($_POST['hit']);
+    }
 
+}
+```
 
 plans for tomorrow if we have time left:
 * look to make a betting system 
