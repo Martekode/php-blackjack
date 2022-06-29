@@ -16,8 +16,13 @@ if (!isset($_SESSION['blackjack'])){
 
 //logic for buttons
 if(isset($_POST['hit'])){
-    $_SESSION['blackjack']->getPlayer()->hit($_SESSION['blackjack']->getDeck());
-    unset($_POST['hit']);
+    if($_SESSION['blackjack']->getPlayer()->getScore() >= 21){
+        echo "you are busted so no more hitting, try restart";
+    }else{
+        $_SESSION['blackjack']->getPlayer()->hit($_SESSION['blackjack']->getDeck());
+        unset($_POST['hit']);
+    }
+
 }
 if(isset($_POST['restart'])){
     $_SESSION['blackjack']->restart();
@@ -37,10 +42,10 @@ if(isset($_POST['stand'])){
 </head>
 <body>
    <form style="text-align:center;" method="post">
-        <button name="hit">hit</button>
-        <button name="stand">stand</button>
-        <button name="surrender">surrender</button>
-        <button name="restart">restart</button>
+        <button class="btn-success" name="hit">hit</button>
+        <button class="btn-warning" name="stand">stand</button>
+        <button class="btn-danger" name="surrender">surrender</button>
+        <button class="btn-info" name="restart">restart</button>
    </form> 
    <div style="text-align:center; font-size:30px;" class="message">
     <?= $_SESSION['blackjack']->messaging() ?>
