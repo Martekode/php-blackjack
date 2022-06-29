@@ -3,7 +3,7 @@
     private Dealer $dealer;
     private Deck $deck;
     private int $blackJack = 21;
-    private string $message = "lala";
+    private string $message = "default message";
     private int $threshHold = 15;
 
     public function __construct(){
