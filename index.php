@@ -16,7 +16,7 @@ if (!isset($_SESSION['blackjack'])){
 
 //logic for buttons
 if(isset($_POST['hit'])){
-    if($_SESSION['blackjack']->getPlayer()->getScore() >= 21){
+    if($_SESSION['blackjack']->getPlayer()->hasLost() || $_SESSION['blackjack']->getDealer()->getScore()>= 21){
         echo "you are busted so no more hitting, try restart";
     }else{
         $_SESSION['blackjack']->getPlayer()->hit($_SESSION['blackjack']->getDeck());
