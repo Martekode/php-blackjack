@@ -464,6 +464,22 @@ if(isset($_POST['hit'])){
 ```
 added some css too red for ded and green for wiin..
 
+```php
+            <?php if(!isset($_POST['stand']) && !$_SESSION['blackjack']->getPlayer()->hasLost()):?>
+                <div style="text-align:center; font-size:100px;" class="card col-lg-3">
+                    <?= $_SESSION['blackjack']->getDealer()->getCards()[0]->getUnicodeCharacter(true);?>
+                </div>
+            <?php elseif (isset($_POST['stand']) || $_SESSION['blackjack']->getPlayer()->hasLost()):?>
+                <?php foreach ($_SESSION['blackjack']->getDealer()->getCards() AS $card):?>
+                    <div style="text-align:center; font-size:100px" class="card col-lg-3">  
+                        <?= $card->getUnicodeCharacter(true); ?>
+                    </div>
+                <?php endforeach;?>
+            <?php endif;?>
+```
+restructure the code because it displayed the sme card again after player bust
+
+
 plans for tomorrow if we have time left:
 * look to make a betting system 
 * player money in session

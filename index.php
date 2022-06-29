@@ -67,12 +67,11 @@ if(isset($_POST['stand'])){
             ?>
         </h1>
         <div class="row">
-            <?php if(!isset($_POST['stand'])):?>
+            <?php if(!isset($_POST['stand']) && !$_SESSION['blackjack']->getPlayer()->hasLost()):?>
                 <div style="text-align:center; font-size:100px;" class="card col-lg-3">
                     <?= $_SESSION['blackjack']->getDealer()->getCards()[0]->getUnicodeCharacter(true);?>
                 </div>
-            <?php endif;?>
-            <?php if (isset($_POST['stand']) || $_SESSION['blackjack']->getPlayer()->hasLost()):?>
+            <?php elseif (isset($_POST['stand']) || $_SESSION['blackjack']->getPlayer()->hasLost()):?>
                 <?php foreach ($_SESSION['blackjack']->getDealer()->getCards() AS $card):?>
                     <div style="text-align:center; font-size:100px" class="card col-lg-3">  
                         <?= $card->getUnicodeCharacter(true); ?>
