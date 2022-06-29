@@ -450,6 +450,18 @@ if(isset($_POST['hit'])){
 
 }
 ```
+some more check added
+```php	
+if(isset($_POST['hit'])){
+    if($_SESSION['blackjack']->getPlayer()->hasLost() || $_SESSION['blackjack']->getDealer()->getScore()>= 21){
+        echo "you are busted so no more hitting, try restart";
+    }else{
+        $_SESSION['blackjack']->getPlayer()->hit($_SESSION['blackjack']->getDeck());
+        unset($_POST['hit']);
+    }
+
+}
+```
 
 plans for tomorrow if we have time left:
 * look to make a betting system 
